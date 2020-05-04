@@ -13,9 +13,44 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+//console.log (hand1, hand2)
+// Write code here
+// Use the unit test to see what is expected
 
-  // Write code here
-  // Use the unit test to see what is expected
+//Rock u1
+if (hand1 == "rock" && hand2 == "scissor") {
+  return "User1 Wins!";
+}
+if (hand1 == "rock" && hand2 == "paper") {
+  return "User2 wins!";
+}
+if (hand1 == "rock" && hand2 == "rock") {
+  return "It's a tie!";
+}
+
+//Paper u1
+if (hand1 == "paper" && hand2 == "scissor") {
+  return "User2 Wins!";
+}
+if (hand1 == "paper" && hand2 == "paper") {
+  return "It's a tie!";
+}
+if (hand1 == "paper" && hand2 == "rock") {
+  return "User1 Wins!";
+}
+
+
+//Scissor u1
+if (hand1 == "scissors" && hand2 == "scissor") {
+  return "It's a tie!";
+}
+if (hand1 == "scissors" && hand2 == "paper") {
+  return "User1 wins!";
+}
+if (hand1 == "scissors" && hand2 == "rock") {
+  return "User2 wins!";
+}
+
 
 }
 
@@ -25,7 +60,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
