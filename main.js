@@ -12,46 +12,61 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
-const rockPaperScissors = (hand1, hand2) => {
-//console.log (hand1, hand2)
-// Write code here
+const rockPaperScissors = (hand1, hand2) =>
+// Write code here <--------------------------------
 // Use the unit test to see what is expected
+{
+  let scissors = "scissors";
+  let rock = "rock";
+  let paper = "paper";
+  //Initialize variables
+  hand1 = hand1.trim();
+  hand1 = hand1.toLowerCase();
+  hand2 = hand2.trim();
+  hand2 = hand2.toLowerCase();
+  
+  //Rock u1
+  if (hand1 == rock && hand2 == scissors) 
+  {
+    return "Hand one wins!";
+  }
+  if (hand1 == rock && hand2 == paper) 
+  {
+    return "Hand two wins!";
+  }
+  if (hand1 == rock && hand2 == rock) 
+  {
+    return "It's a tie!";
+  }
 
-//Rock u1
-if (hand1 == "rock" && hand2 == "scissor") {
-  return "User1 Wins!";
-}
-if (hand1 == "rock" && hand2 == "paper") {
-  return "User2 wins!";
-}
-if (hand1 == "rock" && hand2 == "rock") {
-  return "It's a tie!";
-}
-
-//Paper u1
-if (hand1 == "paper" && hand2 == "scissor") {
-  return "User2 Wins!";
-}
-if (hand1 == "paper" && hand2 == "paper") {
-  return "It's a tie!";
-}
-if (hand1 == "paper" && hand2 == "rock") {
-  return "User1 Wins!";
-}
+  //Paper u1
+  if (hand1 == paper && hand2 == scissors) 
+  {
+    return "Hand two wins!";
+  }
+  if (hand1 == paper && hand2 == paper) 
+  {
+    return "It's a tie!";
+  }
+  if (hand1 == paper && hand2 == rock) 
+  {
+    return "Hand one wins!";
+  }
 
 
-//Scissor u1
-if (hand1 == "scissors" && hand2 == "scissor") {
-  return "It's a tie!";
-}
-if (hand1 == "scissors" && hand2 == "paper") {
-  return "User1 wins!";
-}
-if (hand1 == "scissors" && hand2 == "rock") {
-  return "User2 wins!";
-}
-
-
+  //Scissor u1
+  if (hand1 == "scissors" && hand2 == scissors) 
+  {
+    return "It's a tie!";
+  }
+  if (hand1 == "scissors" && hand2 == paper) 
+  {
+    return "Hand one wins!";
+  }
+  if (hand1 == "scissors" && hand2 == rock) 
+  {
+    return "Hand two wins!";
+  }
 }
 
 // the first function called in the program to get an input from the user
@@ -84,6 +99,11 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
+      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
+      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
+      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should detect no user-input', () => {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
