@@ -13,45 +13,45 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
-//console.log (hand1, hand2)
-// Write code here
-// Use the unit test to see what is expected
+  //console.log (hand1, hand2)
+  // Write code here
+  // Use the unit test to see what is expected
+  hand1 = hand1.trim().toLowerCase();
+  hand2 = hand2.trim().toLowerCase();
 
-//Rock u1
-if (hand1 == "rock" && hand2 == "scissor") {
-  return "User1 Wins!";
-}
-if (hand1 == "rock" && hand2 == "paper") {
-  return "User2 wins!";
-}
-if (hand1 == "rock" && hand2 == "rock") {
-  return "It's a tie!";
-}
+  //Rock u1
+  if (hand1 == "rock" && hand2 == "scissors") {
+    return "Hand one wins!";
+  }
+  if (hand1 == "rock" && hand2 == "paper") {
+    return "Hand two wins!";
+  }
+  if (hand1 == "rock" && hand2 == "rock") {
+    return "It's a tie!";
+  }
 
-//Paper u1
-if (hand1 == "paper" && hand2 == "scissor") {
-  return "User2 Wins!";
-}
-if (hand1 == "paper" && hand2 == "paper") {
-  return "It's a tie!";
-}
-if (hand1 == "paper" && hand2 == "rock") {
-  return "User1 Wins!";
-}
-
-
-//Scissor u1
-if (hand1 == "scissors" && hand2 == "scissor") {
-  return "It's a tie!";
-}
-if (hand1 == "scissors" && hand2 == "paper") {
-  return "User1 wins!";
-}
-if (hand1 == "scissors" && hand2 == "rock") {
-  return "User2 wins!";
-}
+  //Paper u1
+  if (hand1 == "paper" && hand2 == "scissors") {
+    return "Hand two wins!";
+  }
+  if (hand1 == "paper" && hand2 == "paper") {
+    return "It's a tie!";
+  }
+  if (hand1 == "paper" && hand2 == "rock") {
+    return "Hand one wins!";
+  }
 
 
+  //scissors u1
+  if (hand1 == "scissors" && hand2 == "scissors") {
+    return "It's a tie!";
+  }
+  if (hand1 == "scissors" && hand2 == "paper") {
+    return "Hand one wins!";
+  }
+  if (hand1 == "scissors" && hand2 == "rock") {
+    return "Hand two wins!";
+  }
 }
 
 // the first function called in the program to get an input from the user
