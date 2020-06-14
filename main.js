@@ -52,6 +52,19 @@ const rockPaperScissors = (hand1, hand2) => {
   if (hand1 == "scissors" && hand2 == "rock") {
     return "Hand two wins!";
   }
+
+  //detect no input
+  if(hand1 == " " || hand2 == " "
+  || hand1 == "" || hand2 == ""){
+    return "No input!";
+  }
+
+  //detect incorrect input
+  if(hand1 != "rock" || hand1 != "paper" || hand1 != "scissors"
+  || hand2 != "rock" || hand2 != "paper" || hand2 != "scissors"){
+    return "Incorrect input!";
+  }
+
 }
 
 // the first function called in the program to get an input from the user
@@ -87,6 +100,12 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should detect incorrect inputs', () => {
+      assert.equal(rockPaperScissors('professor', 'chaos'), "Incorrect input!");
+    });
+    it('should detect no input', () => {
+      assert.equal(rockPaperScissors(' ', 'paper'), "No input!");
     });
   });
 } else {
